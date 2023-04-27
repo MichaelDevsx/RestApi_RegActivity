@@ -8,4 +8,4 @@ class UserModel(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(), nullable=False)
 
-    registeract = db.relationship("RegisterActModel", backref="users", lazy="dynamic")
+    workouts = db.relationship("WorkoutModel", back_populates="users", secondary="users_workouts")

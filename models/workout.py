@@ -7,4 +7,7 @@ class WorkoutModel(db.Model):
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(80), nullable=False)
 
-    registeract = db.relationship("RegisterActModel", backref="workouts", lazy="dynamic")
+    
+    registers = db.relationship("RegisterActModel", backref="registers", lazy="dynamic")
+
+    users = db.relationship("UserModel", back_populates="workouts", secondary="users_workouts")

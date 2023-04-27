@@ -10,5 +10,4 @@ class RegisterActModel(db.Model):
     distance = db.Column(db.Float)
     calories_burned = db.Column(db.Float)
 
-    user_id = db.Column(db.Integer(), db.ForeignKey("users.id"),nullable=False)
-    workout_id = db.Column(db.Integer(), db.ForeignKey("workouts.id"),nullable=False)
+    workout_id = db.Column(db.Integer(), db.ForeignKey("workouts.id"), nullable=False)

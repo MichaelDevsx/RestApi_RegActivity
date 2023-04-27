@@ -7,6 +7,10 @@ import models
 
 from db import db
 
+from resources.user import blp as UserBlueprint
+from resources.workout import blp as WorkoutBlueprint
+from resources.registeract import blp as RegisteractBlueprint
+
 def create_app(db_url=None):
     app= Flask(__name__, instance_path=os.path.join(os.getcwd(), "instance"))
     app.config["API_TITLE"] = "RestApi of Activity"
@@ -28,6 +32,8 @@ def create_app(db_url=None):
     app.config["JWT_SECRET_KEY"] = "SecretKey"
 
 
-
+    api.register_blueprint(UserBlueprint)
+    api.register_blueprint(WorkoutBlueprint)
+    api.register_blueprint(RegisteractBlueprint)
 
     return app
